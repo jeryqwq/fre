@@ -11,6 +11,9 @@ export const updateElement = <P extends Attributes>(
     let b = bProps[name]
 
     if (a === b || name === "children") {
+      if(Array.isArray(a) && Array.isArray(b)) {
+        console.log(dom, bProps)
+      }
     } else if (name === "style" && !isStr(b)) {
       for (const k in { ...a, ...b }) {
         if (!(a && b && a[k] === b[k])) {
